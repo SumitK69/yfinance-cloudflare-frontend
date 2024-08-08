@@ -15,7 +15,7 @@ function MainPage() {
 
   const prod_hist_url =
     "https://main--yfinance-backend.netlify.app/.netlify/functions/api/hist";
-  const local_hist_url = "http://localhost:8888/.netlify/functions/api/hist";
+  // const local_hist_url = "http://localhost:8888/.netlify/functions/api/hist";
   useEffect(() => {
     const fetchData = async () => {
       try {

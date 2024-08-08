@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 function CustomForm({ onSubmit }) {
@@ -7,7 +7,7 @@ function CustomForm({ onSubmit }) {
   const [number2, setNumber2] = useState("");
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
-  const [quotes, setQuotes] = useState([]);
+  // const [quotes, setQuotes] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,8 +33,7 @@ function CustomForm({ onSubmit }) {
 
   const prod_search_url =
     "https://main--yfinance-backend.netlify.app/.netlify/functions/api/search";
-  const local_search_url =
-    "http://localhost:8888/.netlify/functions/api/search";
+  // const local_search_url =    "http://localhost:8888/.netlify/functions/api/search";
 
   // const fetchQuotes = async (query) => {
   //   try {
@@ -54,8 +53,8 @@ function CustomForm({ onSubmit }) {
         query: newValue,
       })
       .then((res) => {
-        const quote_list = res.data.quotes;
-        setQuotes(quote_list);
+        // const quote_list = res.data.quotes;
+        // setQuotes(quote_list);
         // console.log(quote_list);
       });
     console.log("newValue", newValue);
@@ -69,8 +68,8 @@ function CustomForm({ onSubmit }) {
         query: newValue,
       })
       .then((res) => {
-        const quote_list = res.data.quotes;
-        setQuotes(quote_list);
+        // const quote_list = res.data.quotes;
+        // setQuotes(quote_list);
         // console.log(quote_list);
       });
     console.log("newValue", newValue);
