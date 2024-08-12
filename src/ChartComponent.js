@@ -63,6 +63,7 @@ const ChartComponent = ({ scrip1_data, scrip2_data }) => {
     };
 
     return <Line data={chartData} options={options} />;
+    // }
   } catch (error) {
     console.log("error message:", error);
   }

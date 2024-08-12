@@ -6,10 +6,12 @@ import CustomForm from "./CustomForm";
 function MainPage() {
   const [scrip1_data, setscript1_Data] = useState(null);
   const [scrip2_data, setscript2_Data] = useState(null);
+  const [loading, setloading] = useState(false);
 
   const [formData, setFormData] = useState(null);
 
   const handleFormSubmit = (data) => {
+    setloading(true);
     setFormData(data);
   };
 
@@ -33,8 +35,9 @@ function MainPage() {
           data: scrip2_response.data,
           ratio_data: formData.number2,
         });
+        setloading(false);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.log("fetcing error:  ", error);
       }
     };
 
@@ -45,7 +48,7 @@ function MainPage() {
     <div>
       {" "}
       <CustomForm onSubmit={handleFormSubmit} />
-      {formData && (
+      {/* {formData && (
         <div>
           <h2>Submitted Data</h2>
           <p>Number 1: {formData.number1}</p>
@@ -55,8 +58,12 @@ function MainPage() {
           <p>Text Area 2: {formData.text2}</p>
           <p>Selected Option for Text Area 2: {formData.selectedOptionText2}</p>
         </div>
+      )} */}
+      {loading ? (
+        <p>loading....</p>
+      ) : (
+        <ChartComponent scrip1_data={scrip1_data} scrip2_data={scrip2_data} />
       )}
-      <ChartComponent scrip1_data={scrip1_data} scrip2_data={scrip2_data} />
     </div>
   );
 }
