@@ -22,12 +22,17 @@ function MainPage() {
         const scrip1_response = await axios.post(prod_hist_url, {
           query: formData.text1,
         });
-        setscript1_Data(scrip1_response.data);
-
+        setscript1_Data({
+          data: scrip1_response.data,
+          ratio_data: formData.number1,
+        });
         const scrip2_response = await axios.post(prod_hist_url, {
           query: formData.text2,
         });
-        setscript2_Data(scrip2_response.data);
+        setscript2_Data({
+          data: scrip2_response.data,
+          ratio_data: formData.number2,
+        });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
